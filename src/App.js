@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles/tailwind.css";
+import "@trendmicro/react-sidenav/dist/react-sidenav.css";
+import Cookies from "js-cookie";
+
+import Login from "./app/Login/Login";
+
+import { AuthRoute, UnauthRoute } from "react-router-auth";
+
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import Signup from "./app/Signup/Signup";
+import Dashboard from "./app/Dashboard/ Dashboard";
+
+import Stocking from "./app/Stocking/Stocking";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <UnauthRoute exact path="/login" component={Login} />
+        <UnauthRoute exact path="/signup" component={Signup} />
+        <UnauthRoute exact path="/dashboard/stocking" component={Stocking} />
+        <AuthRoute
+          exact
+          path="/dashboard/home"
+          component={Dashboard}
+          redirectTo="/login"
+          authenticated={Cookies.get("authed")}
+        />
+      </Switch>
+    </Router>
   );
 }
 
