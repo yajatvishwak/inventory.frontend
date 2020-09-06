@@ -7,14 +7,11 @@ import Axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Redirect } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const Login = (props) => {
-  Cookies.set("authed", false);
   const notify = (message) => toast(message);
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
-  const [isLogged, setisLogged] = useState(false);
 
   const login = () => {
     Axios.post("http://localhost:5000/login", {
@@ -24,8 +21,7 @@ const Login = (props) => {
       .then((res) => {
         if (res.data.code === true) {
           console.log("logged in");
-          setisLogged(true);
-          Cookies.set("authed", true);
+          props.onLogin();
         } else {
           notify(res.data.message);
         }
@@ -44,7 +40,7 @@ const Login = (props) => {
   return (
     <>
       {" "}
-      {isLogged ? (
+      {props.isLogged ? (
         <Redirect to="/dashboard/home" />
       ) : (
         <>
