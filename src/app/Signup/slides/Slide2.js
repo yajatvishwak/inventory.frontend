@@ -5,7 +5,7 @@ export default function Slide2(props) {
   return (
     <>
       <div style={{ fontWeight: 600, fontSize: 36, opacity: 0.7 }}>
-        <Input value="username" />
+        <Input onChange={props.onChangeUserName} value="username" />
       </div>
       <div
         style={{
@@ -15,7 +15,7 @@ export default function Slide2(props) {
           opacity: 0.7,
         }}
       >
-        <Input value="password" />
+        <Input onChange={props.onChangePassword} value="password" />
       </div>
       <div
         style={{
@@ -25,7 +25,7 @@ export default function Slide2(props) {
           opacity: 0.7,
         }}
       >
-        <Input value="password again" />
+        <Input onChange={props.onChangePpassword} value="password again" />
       </div>
       <div
         style={{

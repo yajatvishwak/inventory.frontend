@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidenav from "../shared/SideNav";
 import Card from "./components/Card";
 import Card2 from "./components/Card2";
+import Axios from "axios";
 
 export default function Dashboard() {
+  useEffect(() => {}, []);
   return (
     <>
       <Sidenav />
@@ -11,7 +13,7 @@ export default function Dashboard() {
         style={{ fontWeight: 700, fontSize: 50 }}
         className="text-center ml-auto mt-20"
       >
-        Inventory
+        Dashboard
       </div>
       <div className="flex flex-row content-center justify-center ">
         <div className="flex flex-wrap">

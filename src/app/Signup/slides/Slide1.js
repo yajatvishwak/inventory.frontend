@@ -5,7 +5,7 @@ export default function Slide1(props) {
   return (
     <>
       <div style={{ fontWeight: 600, fontSize: 36, opacity: 0.7 }}>
-        <Input value="name" />
+        <Input value="name" onChange={props.onChangeName} />
       </div>
       <div
         style={{
@@ -15,7 +15,7 @@ export default function Slide1(props) {
           opacity: 0.7,
         }}
       >
-        <Input value="email" />
+        <Input onChange={props.onChangeEmail} value="email" />
       </div>
 
       <div

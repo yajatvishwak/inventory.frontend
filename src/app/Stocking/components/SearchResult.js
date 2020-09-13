@@ -6,10 +6,8 @@ export default function Searchresult() {
       <div
         style={{
           borderRadius: 21,
-          width: 500,
-          height: 500,
-          backgroundColor: "gray",
         }}
+        className="bg-gray-300 w-auto  h-64"
       >
         {" "}
       </div>
